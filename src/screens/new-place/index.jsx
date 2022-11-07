@@ -2,21 +2,26 @@ import { Button, ScrollView, Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
 
 import ImageSelector from "../../components/image-selector";
-import { addPlace } from "../../store/place.slice";
 import colors from '../../utils/colors';
+import { savePlace } from "../../store/place.slice";
 import { styles } from "./styles";
 import { useDispatch } from "react-redux";
 
 const NewPlace = ({ navigation }) => {
   const dispatch= useDispatch()
   const [title, setTitle]=useState('')
+  const [image, setImage] = useState('')
 
   const onHandleChange=(text)=> {
     setTitle(text)
   }
   const onHandleSubmit=()=> {
-    dispatch(addPlace(title))
+    dispatch(savePlace(title, image))
     navigation.goBack()
+  }
+
+  const onHandlerImage = (imageUri)=> {
+    setImage(imageUri)
   }
 
   return (
@@ -28,9 +33,9 @@ const NewPlace = ({ navigation }) => {
         placeholder='New location'
         onHandleText={onHandleChange}
         />
-        <ImageSelector onImage={()=>{}}/>
+        <ImageSelector onImage={onHandlerImage}/>
         <Button
-        title="Save location"
+        title="Save place"
         onPress={onHandleSubmit}
         color={colors.primary}
         />
