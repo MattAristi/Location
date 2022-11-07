@@ -21,7 +21,7 @@ const NewPlace = ({ navigation }) => {
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.container}>
+      <View style={styles.content}>
         <Text>Title</Text>
         <TextInput
         style={styles.input}

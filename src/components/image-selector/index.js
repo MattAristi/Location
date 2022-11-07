@@ -1,4 +1,6 @@
-import { Button, Text, View } from "react-native";
+import * as ImagePicker from 'expo-image-picker'
+
+import { Button, Image, Text, View } from "react-native";
 
 import React from "react";
 import colors from "../../utils/colors";
@@ -7,6 +9,29 @@ import { useState } from "react";
 
 const ImageSelector = ({onImage}) => {
     const [pickedUrl, setPickedUrl]=useState('')
+
+    const verifyPermissions= async()=>{
+        const {status} = await ImagePicker.requestCameraPermissionsAsync()
+        if (status!== 'granted') {
+            alert.alert('you need to set camera permission to use it in this app', [{text:'Ok'}]);
+            return false
+        }
+        return true
+    }
+
+    const onHandleTakePhoto = async()=>{
+        const hasPermition= await verifyPermissions();
+        if (!hasPermition) return;
+
+        const image = await ImagePicker.launchCameraAsync({
+            allowsEditing: true,
+            aspect: [16, 9],
+            quality: 0.7,
+        })
+        setPickedUrl(image.uri)
+        onImage(image.uri)
+
+    }
 
     return (
 
@@ -22,7 +47,7 @@ const ImageSelector = ({onImage}) => {
         <Button
             title= 'Take image'
             color= {colors.secondary}
-            onPress={()=>{}}
+            onPress={onHandleTakePhoto}
         />
     </View>
     )
