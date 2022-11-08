@@ -16,8 +16,8 @@ const NewPlace = ({ navigation }) => {
     setTitle(text)
   }
   const onHandleSubmit=()=> {
-    dispatch(savePlace(title, image))
-    navigation.goBack()
+    dispatch(savePlace(title, image,'123 Street name'))
+    navigation.navigate('Places')
   }
 
   const onHandlerImage = (imageUri)=> {
@@ -31,7 +31,7 @@ const NewPlace = ({ navigation }) => {
         <TextInput
         style={styles.input}
         placeholder='New location'
-        onHandleText={onHandleChange}
+        onChangeText={onHandleChange}
         />
         <ImageSelector onImage={onHandlerImage}/>
         <Button

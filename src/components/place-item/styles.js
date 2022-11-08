@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     },
     title: {
     fontSize: 16,
-    color: colors.text,
+    color: colors.black,
     marginBottom: 10,
     },
     address: {

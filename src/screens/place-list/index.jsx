@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 
 const PlaceList = ({ navigation }) => {
   const places = useSelector((state) => state.place.places)
-  const renderItem = ({item}) => <PlaceItem {...item} onSelect={()=> {navigation.navigate('PlaceDetail', {placeId:itemId})}}/>
+  const renderItem = ({item}) => <PlaceItem 
+    {...item} 
+    onSelect={()=> {navigation.navigate('PlaceDetail', {placeId:item.id})}}/>
 
   const ListEmptyComponent= ()=>(
     <View style={styles.emptyContainer}>
