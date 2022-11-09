@@ -22,12 +22,12 @@ export const styles = StyleSheet.create({
         alignItems: "flex-start",
     },
     title: {
-    fontSize: 16,
-    color: colors.black,
-    marginBottom: 10,
+        fontSize: 16,
+        color: colors.black,
+        marginBottom: 10,
     },
     address: {
-    fontSize: 14,
-    color: colors.primary,
+        fontSize: 14,
+        color: colors.primary,
     },
 });

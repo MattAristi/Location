@@ -16,11 +16,11 @@ const PlaceList = ({ navigation }) => {
     </View>
   )
   return <FlatList
-  data={places}
-  renderItem= {renderItem}
-  keyExtractor= {(item)=> item.id.toString()}
-  style={styles.container}
-  ListEmptyComponent={ListEmptyComponent}
+    data={places}
+    renderItem= {renderItem}
+    keyExtractor= {(item)=> item.id.toString()}
+    style={styles.container}
+    ListEmptyComponent={ListEmptyComponent}
   />
 };
 
