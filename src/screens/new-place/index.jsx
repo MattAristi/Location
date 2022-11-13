@@ -12,12 +12,13 @@ const NewPlace = ({ navigation }) => {
   const [title, setTitle]=useState('')
   const [image, setImage] = useState('')
   const [location, setLocation]= useState('')
+  
 
   const onHandleChange=(text)=> {
     setTitle(text)
   }
   const onHandleSubmit=()=> {
-    dispatch(savePlace(title, image,location))
+    dispatch(savePlace(title, image, location))
     navigation.navigate('Places')
   }
 

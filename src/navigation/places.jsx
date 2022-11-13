@@ -1,10 +1,11 @@
 import { MapsScreen, NewPlaceScreen, PlaceDetailScreen, PlaceListScreen } from "../screens/index";
 import { Platform, TouchableOpacity } from "react-native";
 
-import IonicIcons from '@expo/vector-icons/Ionicons'
+import IonIcons from '@expo/vector-icons/Ionicons'
 import React from "react";
 import colors from "../utils/colors";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useSelector } from "react-redux";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +28,7 @@ const PlacesNavigator = () => {
         options={({navigation}) => ({
             title: "Direcciones",
             headerRight:() => <TouchableOpacity onPress={() => {navigation.navigate('NewPlace')}}>
-              <IonicIcons name='add-circle-outline' size={24} color={colors.black} />
+              <IonIcons name='add-circle-outline' size={30} color={colors.black} />
             </TouchableOpacity>
           })}
 
